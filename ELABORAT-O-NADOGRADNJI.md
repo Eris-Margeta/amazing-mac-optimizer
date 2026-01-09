@@ -12,46 +12,47 @@
 
 ### **1.0 UVOD I OBRAZLOŽENJE**
 
-[**Uputa za AI:** Ovdje se unosi kratak, formalan uvod u projekt. Opiši glavnu svrhu i cilj projekta u jednoj do dvije rečenice. Npr., "Ovaj dokument predstavlja tehničku i operativnu specifikaciju za razvoj sustava X, dizajniranog za rješavanje problema Y..."]
+Ovaj dokument predstavlja tehničku i operativnu specifikaciju za razvoj alata "amazing-mac-optimizer", dizajniranog za dubinsku optimizaciju, oslobađanje prostora na disku i poboljšanje privatnosti i performansi na Apple macOS sustavima.
 
 ### **2.0 CILJEVI PROJEKTA**
 
-[**Uputa za AI:** Navedi glavne ciljeve projekta u obliku numerirane liste. Ciljevi trebaju biti jasni, mjerljivi i dostižni.
-Primjer:
-1.  **Cilj A:** Opis cilja A.
-2.  **Cilj B:** Opis cilja B.
-3.  **Cilj C:** Opis cilja C.
-]
+1.  **Optimizacija Diskovnog Prostora:** Uklanjanje skrivenih i automatski generiranih APFS snapshotova koji zauzimaju značajan prostor bez znanja korisnika.
+2.  **Poboljšanje Performansi i Privatnosti:** Kompletno uklanjanje Spotlight servisa i indeksa, namijenjeno korisnicima koji koriste alternativne launchere (npr. Sol).
+3.  **Povećanje Sigurnosti Sustava:** Onemogućavanje "system-wide" spellcheckera koji može predstavljati sigurnosni rizik.
+4.  **Optimizacija Time Machine Sigurnosnih Kopija:** Ubrzavanje i smanjenje veličine Time Machine backupa isključivanjem nepotrebnih "cache" direktorija te osiguravanje uključivanja ključnih skrivenih konfiguracijskih datoteka.
 
 ### **3.0 TEHNIČKA SPECIFIKACIJA I STANDARDI**
 
-[**Uputa za AI:** Ovdje se definira tehnički "stack" i arhitektura. Ovaj dio se nadopunjuje kako se donose tehničke odluke.
-Primjer:
 #### **3.1 Arhitektura Sustava**
-Sustav će biti implementiran kao [npr. monolitna Go web aplikacija, set mikroservisa, CLI alat].
+Sustav će biti implementiran kao CLI (Command-Line Interface) alat u obliku shell skripte.
+
 #### **3.2 Tehnologije**
-*   **Programski Jezik:** Go 1.25.x
-*   **Baza Podataka:** [npr. PostgreSQL, SQLite, Nije primjenjivo]
-*   **Framework:** [npr. Standardna biblioteka, Gin, Nije primjenjivo]
-]
+*   **Programski Jezik:** Shell Script (Bash/Zsh)
+*   **Baza Podataka:** Nije primjenjivo
+*   **Framework:** Standardne macOS komandne linije (tmutil, defaults, etc.)
 
 ### **4.0 PREGLED STATUSA IMPLEMENTACIJE**
 
-[**Uputa za AI:** Ova sekcija je "živi" dnevnik projekta. Na početku je prazna. Kako se zadaci (cjeline) završavaju, dodaješ ih ovdje s oznakom **ZAVRŠENO**.
-Primjer:
-*   **Cjelina 1: Inicijalizacija Projekta i Osnovna Struktura:** **ZAVRŠENO**.
-]
+*   **Cjelina 1: Inicijalizacija Projekta i Osnovna Optimizacija:** **ZAVRŠENO**.
+    *   Implementirano uklanjanje skrivenih APFS snapshotova.
+    *   Implementirano potpuno uklanjanje Spotlight servisa.
+    *   Kreirana osnovna dokumentacija (README.md).
 
 ### **5.0 PLAN DALJNJIH AKTIVNOSTI**
 
-[**Uputa za AI:** Ovo je najvažniji dio dokumenta. Ovdje se nalazi detaljan, korak-po-korak plan za sljedeću fazu razvoja. Plan treba biti podijeljen u logičke cjeline i zadatke.
-Primjer:
-**Cjelina 2: Implementacija Osnovne CRUD Funkcionalnosti (SLJEDEĆI PRIORITET)**
-*   **2.1. Definicija Modela:**
-    *   `2.1.a.` Kreirati Go strukturu za model `Item`.
-*   **2.2. Implementacija Handlera:**
-    *   `2.2.a.` Implementirati HTTP handler za stvaranje novog `Item`-a.
-]
+**Cjelina 2: Napredna Optimizacija Sustava i Time Machine Backup-a (SLJEDEĆI PRIORITET)**
+
+*   **2.1. Upravljanje Spellcheckerom:**
+    *   `2.1.a.` Implementirati logiku za potpuno i trajno onemogućavanje "system-wide" spellcheckera putem `defaults write` komandi.
+    *   `2.1.b.` Istražiti i implementirati metodu za granularno onemogućavanje spellcheckera na razini pojedinačnih aplikacija, gdje je to moguće.
+
+*   **2.2. Optimizacija Time Machine Backup-a (Izuzeci):**
+    *   `2.2.a.` Identificirati sve standardne i uobičajene putanje za "cache" direktorije (npr. `~/Library/Caches`, `~/.cache`).
+    *   `2.2.b.` Kreirati funkciju unutar skripte koja automatski dodaje detektirane "cache" direktorije u listu izuzetaka za Time Machine (`tmutil addexclusion`).
+
+*   **2.3. Optimizacija Time Machine Backup-a (Uključivanje):**
+    *   `2.3.a.` Definirati listu ključnih skrivenih datoteka i direktorija u korisničkom "home" folderu koji su kritični za korisnika (npr. `.config`, `.ssh`, `.gitconfig`, `.zshrc`, i ostali dotfiles).
+    *   `2.3.b.` Implementirati mehanizam koji provjerava i osigurava da navedene stavke *nisu* na listi izuzetaka te da će biti uključene u Time Machine backup.
 
 ---
 **Sastavio:**
