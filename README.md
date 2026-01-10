@@ -1,5 +1,9 @@
 # AMAZING MAC CLEANER ilitiga fantastični Mac čistač [DEPRECATED]
 
+Now moved to a unified tools monorepo for easier management and discovery:
+https://github.com/Eris-Margeta/tools
+
+
 Sveobuhvatna skripta za čišćenje, održavanje i konfiguraciju macOS-a.
 
 Ova skripta je dizajnirana da oslobodi značajnu količinu prostora na disku i optimizira vaš macOS sustav automatiziranim čišćenjem raznih cache datoteka, logova, nepotrebnih sistemskih datoteka i još mnogo toga. Najvažnije od svega - briše Apple bolesti s računala poput Spotlighta i skrivenih snapshota koji tjeraju korisnike na cloud upgrade
